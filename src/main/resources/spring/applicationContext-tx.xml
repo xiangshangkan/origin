@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
        xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+    <!-- 引入其它spring文件 -->
     <import resource="applicationContext-dao.xml"/>
-    <!-- 事务管理器 -->
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!-- 数据源 -->
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <!-- 开启事务注解驱动 -->
+    <tx:annotation-driven/>
+    <!--事务通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 传播行为 -->
@@ -25,14 +20,16 @@
             <tx:method name="update*" propagation="REQUIRED"/>
             <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
             <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <!-- 遇远程方法的时候有事务将事务挂起 -->
+            <tx:method name="remote*" propagation="NOT_SUPPORTED"/>
             <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
-    <!-- 切面 -->
-    <aop:config>
-        <aop:advisor advice-ref="txAdvice"
-                     pointcut="execution(* com.xiangshangkan.framTest.service.*.*(..))"/>
-
-        <!-- 具体service包的路径取决于你新建的java代码的service层包  -->
+    <!-- 切面配置 -->
+    <aop:config proxy-target-class="true">
+        <!-- 拦截service 下面的所有包 -->
+        <aop:pointcut id="mycut" expression="execution(* com.xiangshangkan.framtest.service.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="mycut"/>
     </aop:config>
+
 </beans>

@@ -1,26 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
-  <display-name>Archetype Created Web Application</display-name>
-
-  <!-- 初始化spring容器 -->
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+  <!-- Spring ApplicationContext配置文件的路径,可使用通配符,多个路径用,号分隔 此参数用于后面的Spring ContextLoader -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/applicationContext-*.xml</param-value>
   </context-param>
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-
-  <!-- 配置logback -->
-  <context-param>
-    <param-name>logbackConfigLocation</param-name>
-    <param-value>classpath:logback.xml</param-value>
-  </context-param>
-
-
+  <!-- 定义 各种 Filter  -->
   <!-- 解决post乱码 -->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
@@ -29,15 +16,22 @@
       <param-name>encoding</param-name>
       <param-value>utf-8</param-value>
     </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
+  <!-- Spring的ApplicationContext 载入 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
   <!-- spring-mvc的前端控制器 -->
   <servlet>
-    <servlet-name>wdkj</servlet-name>
+    <servlet-name>springServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <!-- spring-mvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
     <init-param>
@@ -48,21 +42,41 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>wdkj</servlet-name>
+    <servlet-name>springServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+
+
+
+
+
+
+
+
+
+  <!-- 配置logback -->
+  <!--<context-param>
+    <param-name>logbackConfigLocation</param-name>
+    <param-value>classpath:logback.xml</param-value>
+  </context-param>-->
   <!--设置session无操作5分钟后销毁-->
-  <!-- <session-config>
-       <session-timeout>5</session-timeout>
-   </session-config>-->
-  <!--默认首页-->
+  <session-config>
+    <session-timeout>5</session-timeout>
+  </session-config>
+
+  <!--当用户键入的url找不到对应的servlert或页面时访问的页面 顺序访问-->
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default1.jsp</welcome-file>
+    <welcome-file>default2.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 出现500服务器异常跳转页面 -->
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error_500.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error_404.jsp</location>
+  </error-page>
 </web-app>
