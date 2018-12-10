@@ -4,9 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @auther: Administrator
- * @date: 2018/12/8 16:15
- */
+* 
+* @author      zhouhui
+* @param       
+* @date        2018/12/10 9:49
+*/
 @RestController
 @RequestMapping("/demo")
 public class DemoController {

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * 4、拦截器可以访问action上下文、值栈里的对象，而过滤器只能在容器初始化时被调用一次
  * 5、拦截器可以获取IOC容器中的各个bean，而过滤器就不行，这点很重要，在拦截器里注入一个service，可以调用业务逻辑
  *
- * @auther: Administrator
+ * @author: Administrator
  * @date: 2018/12/8 16:19
  */
 public class DemoInterceptor extends HandlerInterceptorAdapter {

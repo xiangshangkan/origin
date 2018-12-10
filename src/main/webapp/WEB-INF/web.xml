@@ -7,6 +7,15 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/applicationContext-*.xml</param-value>
   </context-param>
+
+  <!-- Spring的ApplicationContext 载入 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.xiangshangkan.framtest.web.listener.MyServletContextListener</listener-class>
+  </listener>
+
   <!-- 定义 各种 Filter  -->
   <!-- 解决post乱码 -->
   <filter>
@@ -25,10 +34,25 @@
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!-- Spring的ApplicationContext 载入 -->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
+
+  <filter>
+    <filter-name>DemoFilter</filter-name>
+    <filter-class>com.xiangshangkan.framtest.web.filter.DemoFilter</filter-class>
+    <init-param>
+      <param-name>what</param-name>
+      <param-value>我是一个FilterDemo</param-value>
+    </init-param>
+    <init-param>
+      <param-name>bywho</param-name>
+      <param-value>zhouhui</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>DemoFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
   <!-- spring-mvc的前端控制器 -->
   <servlet>
     <servlet-name>springServlet</servlet-name>
@@ -70,7 +94,7 @@
     <welcome-file>default1.jsp</welcome-file>
     <welcome-file>default2.jsp</welcome-file>
   </welcome-file-list>
-  <!-- 出现500服务器异常跳转页面 -->
+  <!-- 出现500服务器内部错误跳转页面 -->
   <error-page>
     <error-code>500</error-code>
     <location>/error_500.jsp</location>
