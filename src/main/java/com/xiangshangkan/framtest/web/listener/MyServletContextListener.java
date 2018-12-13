@@ -4,7 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * @auther: Administrator
+ * @author: Administrator
  * @date: 2018/12/10 14:08
  */
 public class MyServletContextListener implements ServletContextListener {
