@@ -228,4 +228,13 @@
         return mainJson;
     }
 
+    //判断非空
+    function isEmpty(value) {
+        if (value === undefined || value === null || value === 'null' ||
+            value === 'undefined' || value.length === 0) {
+            return true;
+        }
+        return false;
+    }
+
 })();
