@@ -89,10 +89,15 @@
          mapperName  mapper文件名称
          -->
         <table
-                tableName="zx_acceptance_item"
-                domainObjectName="ZxAIEntity"
-                mapperName="IZxAIAutoDAO"
-                schema="kp">
+                tableName="teacher"
+                domainObjectName="TeacherEntity"
+                mapperName="TeacherAutoDAO"
+                schema="framtest">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="student"
+               domainObjectName="StudentEntity"
+               schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
     </context>
