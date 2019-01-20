@@ -11,7 +11,7 @@
 
       另外，如果使用了mybatis-generator-maven-plugin，那么在pom.xml中定义的properties都可以直接在generatorConfig.xml中使用
   -->
-    <properties resource="db.properties"/>
+    <properties resource="properties/db.properties"/>
 
     <!-- 在MBG工作的时候，需要额外加载的依赖包
       location属性指明加载jar/zip包的全路径
@@ -86,17 +86,17 @@
         <!--
          tableName  表明
          domainObjectName 生成的实体对象名称
-         mapperName  mapper文件名称
+         mapperName  mapper文件名称  MGB 1.3.4版本后才有效
          -->
         <table
                 tableName="teacher"
                 domainObjectName="TeacherEntity"
-                mapperName="TeacherAutoDAO"
                 schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
         <table tableName="student"
                domainObjectName="StudentEntity"
+
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
