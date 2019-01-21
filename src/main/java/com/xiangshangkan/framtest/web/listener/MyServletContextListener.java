@@ -1,12 +1,12 @@
 package com.xiangshangkan.framtest.web.listener;
 
 import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-
+import
 /**
  * @author: Administrator
  * @date: 2018/12/10 14:08
  */
+        javax.servlet.ServletContextListener;
 public class MyServletContextListener implements ServletContextListener {
    /**
    * 监听ServletContext对象的创建的方法
