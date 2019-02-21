@@ -111,10 +111,12 @@
     * 非常规的
     * [{name:'userId',value:'1'},{name:'userId',value:'2'},{name:'userName',value:'jack'}] 转成[{"userId": "1", "userName": ""},{"userId": "2", "userName": "jack"}]
     * @author      zhouhui
-    * @param       detailArray  $.serializeArray()生成的json数组
+    * @param       $form  form表单选择器
     * @date        2018/11/2 20:05
     */
-    function serializeArrayToJson( detailArray){
+    function serializeArrayToJson($form){
+        //序列化form表单
+        var detailArray = $form.serializeArray();
         //获取属性名数组（去重）
         var names = [];
         for(var i = 0; i< detailArray.length ;i++){
@@ -227,6 +229,28 @@
         }
         return mainJson;
     }
+
+    function serializeArrayToJsonMultipleObj($form){
+        var dataArray = $($form).serializeArray();
+        var dataJsonArray = [];
+        var dateJson = {};
+        dateArray.forEach(function (item) {
+            if (dataJson.hasOwnProperty(item.name)){
+                //当dataJson有对应key,说明一个对象已转换完成，接着转换下一个对象
+                dataArray.push(dataJson);
+                var dataJson = {};
+            }
+            dataJson[item.name] = item.value;
+        })
+        if (dataJsonArray === []) {
+            //说明只有一个对象，直接返回该对象json字符串
+            return JSON.stringify(dateJson);
+        } else  {
+            //说明有多个对象，返回对象json数组
+            return JSON.stringify(dataJsonArray);
+        }
+    }
+
 
     //判断非空
     function isEmpty(value) {

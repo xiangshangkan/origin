@@ -30,6 +30,7 @@
                         <value>WriteMapNullValue</value>
                         <value>QuoteFieldNames</value>
                         <value>WriteDateUseDateFormat</value>
+                        <value>WriteNullStringAsEmpty</value>
                     </list>
                 </property>
             </bean>
@@ -46,7 +47,7 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
   </bean>
     <mvc:interceptors>
-        <!--可配置多个拦截器,顺序执行 -->
+        <!--可配置多个拦截器,顺执序行 -->
         <mvc:interceptor>
             <!--如果不配置或/*,将拦截所有的Controller -->
            <mvc:mapping path="/*"/>
