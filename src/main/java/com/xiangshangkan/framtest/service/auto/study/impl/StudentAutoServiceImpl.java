@@ -30,7 +30,6 @@ public class StudentAutoServiceImpl implements StudentAutoService {
         if (selection.getId() != null) { criteria.andIdEqualTo(selection.getId());}
         if (selection.getStudentName() != null ) { criteria.andStudentNameEqualTo(selection.getStudentName());}
         if (selection.getStudentNumber() != null) { criteria.andStudentNumberEqualTo(selection.getStudentNumber());}
-        if (selection.getTeacherId() != null) { criteria.andTeacherIdEqualTo(selection.getTeacherId());}
         return  this.studentEntityMapper.selectByExampleWithRowbounds(example,new RowBounds(offset,limit));
     }
 

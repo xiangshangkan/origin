@@ -24,6 +24,12 @@ public class RedisTestDemo {
         Jedis jedis = null;
         //获取redis实例
         jedis = jedisPool.getResource();
+        jedis.set("idpath","i love you baby");
+        jedis.get("idpath");
+        jedis.get("dotno");
+        System.out.println(jedis.get("idpath"));
+        System.out.println(jedis.get("dotno"));
+        System.out.println(jedis.get("path"));
         //取值
         String name = jedis.get("name");
         //输出控制台

@@ -48,7 +48,6 @@ public class DemoServiceImpl implements DemoService {
         }
         StudentEntity studentRecord = new StudentEntity();
         BeanUtils.copyProperties(command,studentRecord);
-        studentRecord.setTeacherId(teacherId);
         Integer studentId = this.studentAutoService.insertStudent(studentRecord);
         if (studentId == null) {
             throw  new RuntimeException();

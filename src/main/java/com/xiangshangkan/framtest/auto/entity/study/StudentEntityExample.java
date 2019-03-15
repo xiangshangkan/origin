@@ -394,63 +394,73 @@ public class StudentEntityExample {
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIsNull() {
-            addCriterion("teacher_id is null");
+        public Criteria andTeacherNumberIsNull() {
+            addCriterion("teacher_number is null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIsNotNull() {
-            addCriterion("teacher_id is not null");
+        public Criteria andTeacherNumberIsNotNull() {
+            addCriterion("teacher_number is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdEqualTo(Integer value) {
-            addCriterion("teacher_id =", value, "teacherId");
+        public Criteria andTeacherNumberEqualTo(String value) {
+            addCriterion("teacher_number =", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotEqualTo(Integer value) {
-            addCriterion("teacher_id <>", value, "teacherId");
+        public Criteria andTeacherNumberNotEqualTo(String value) {
+            addCriterion("teacher_number <>", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThan(Integer value) {
-            addCriterion("teacher_id >", value, "teacherId");
+        public Criteria andTeacherNumberGreaterThan(String value) {
+            addCriterion("teacher_number >", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("teacher_id >=", value, "teacherId");
+        public Criteria andTeacherNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("teacher_number >=", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThan(Integer value) {
-            addCriterion("teacher_id <", value, "teacherId");
+        public Criteria andTeacherNumberLessThan(String value) {
+            addCriterion("teacher_number <", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThanOrEqualTo(Integer value) {
-            addCriterion("teacher_id <=", value, "teacherId");
+        public Criteria andTeacherNumberLessThanOrEqualTo(String value) {
+            addCriterion("teacher_number <=", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIn(List<Integer> values) {
-            addCriterion("teacher_id in", values, "teacherId");
+        public Criteria andTeacherNumberLike(String value) {
+            addCriterion("teacher_number like", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotIn(List<Integer> values) {
-            addCriterion("teacher_id not in", values, "teacherId");
+        public Criteria andTeacherNumberNotLike(String value) {
+            addCriterion("teacher_number not like", value, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_id between", value1, value2, "teacherId");
+        public Criteria andTeacherNumberIn(List<String> values) {
+            addCriterion("teacher_number in", values, "teacherNumber");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_id not between", value1, value2, "teacherId");
+        public Criteria andTeacherNumberNotIn(List<String> values) {
+            addCriterion("teacher_number not in", values, "teacherNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherNumberBetween(String value1, String value2) {
+            addCriterion("teacher_number between", value1, value2, "teacherNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherNumberNotBetween(String value1, String value2) {
+            addCriterion("teacher_number not between", value1, value2, "teacherNumber");
             return (Criteria) this;
         }
 
@@ -461,6 +471,11 @@ public class StudentEntityExample {
 
         public Criteria andStudentNameLikeInsensitive(String value) {
             addCriterion("upper(student_name) like", value.toUpperCase(), "studentName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherNumberLikeInsensitive(String value) {
+            addCriterion("upper(teacher_number) like", value.toUpperCase(), "teacherNumber");
             return (Criteria) this;
         }
     }

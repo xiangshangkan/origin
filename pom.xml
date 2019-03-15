@@ -71,6 +71,9 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+      <!-- 依赖范围 ：定义项目哪个生命周期中需要被依赖-->
+      <!--compile(默认，编译、测试、运行时被需要) provided(编译和测试需要) runtime(运行和测试时被需要)   -->
+      <!-- test(编译测试和编译运行时被需要)  system -->
       <scope>test</scope>
      <!-- <type></type>
       &lt;!&ndash; 依赖范围:test &ndash;&gt;
@@ -263,7 +266,7 @@
     </dependency>
     <!-- POI end  -->
     <!-- redis start-->
-    <!--   spring整合redis   -->
+    <!--   spring整合redis 暂定在这，人事在common包   -->
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-redis</artifactId>
@@ -359,6 +362,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.7.0</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -370,7 +378,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+        <version>2.5.2</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
@@ -378,7 +386,7 @@
         </plugin>
 
         <!-- mybatis逆向工程插件 -->
-       <!-- <plugin>
+        <plugin>
           <groupId>org.mybatis.generator</groupId>
           <artifactId>mybatis-generator-maven-plugin</artifactId>
           <version>1.3.2</version>
@@ -390,11 +398,11 @@
             </dependency>
           </dependencies>
           <configuration>
-            &lt;!&ndash;配置文件的位置&ndash;&gt;
+            <!--配置文件的位置-->
             <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
-            &lt;!&ndash; 是否将生成过程打印到控制台 &ndash;&gt;
+            <!-- 是否将生成过程打印到控制台 -->
             <verbose>true</verbose>
-            &lt;!&ndash; 是否覆盖同名文件 &ndash;&gt;
+            <!-- 是否覆盖同名文件 -->
             <overwrite>true</overwrite>
           </configuration>
           <executions>
@@ -405,7 +413,7 @@
               </goals>
             </execution>
           </executions>
-        </plugin>-->
+        </plugin>
 
 
       </plugins>

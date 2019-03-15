@@ -28,7 +28,6 @@ public class TeacherAutoServiceImpl implements TeacherAutoService {
         TeacherEntityExample.Criteria criteria = example.createCriteria();
         if (selection.getTeacherName() != null){ criteria.andTeacherNameEqualTo(selection.getTeacherName());}
         if (selection.getTeacherNumber() != null){ criteria.andTeacherNumberEqualTo(selection.getTeacherNumber());}
-        if (selection.getTelphone() != null){ criteria.andTelphoneEqualTo(selection.getTelphone());}
        /* RowBounds rowBounds = new RowBounds(offset,limit);
         return this.teacherEntityMapper.selectByExampleWithRowbounds(example,rowBounds);*/
        return this.teacherEntityMapper.selectByExample(example);

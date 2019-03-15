@@ -9,4 +9,5 @@ public interface DemoService {
      * @param command
      */
     void insertStudentMessage(StudentCommand command);
+
 }

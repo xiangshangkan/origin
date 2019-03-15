@@ -100,5 +100,11 @@
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
+        <table tableName="nhr_qualification"
+               domainObjectName="NhrQualificationEntity"
+
+               schema="framtest">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
     </context>
 </generatorConfiguration>

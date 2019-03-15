@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xiangshangkan.framtest.auto.entity.study.StudentEntity;
 import com.xiangshangkan.framtest.auto.entity.study.TeacherEntity;
 import com.xiangshangkan.framtest.service.DemoService;
+import com.xiangshangkan.framtest.service.importSome.ImportNhrQualification;
 import com.xiangshangkan.framtest.web.command.StudentCommand;
 import org.junit.After;
 import org.junit.Before;
@@ -21,6 +22,9 @@ public class TestDemo {
 
     @Autowired
     private DemoService demoService;
+
+    @Autowired
+    private ImportNhrQualification importNhrQualification;
 
 
     @After
@@ -53,5 +57,10 @@ public class TestDemo {
         TeacherEntity teacherEntity = JSON.parseObject(temp,TeacherEntity.class);
         System.out.println(temp);
         System.out.println(teacherEntity);
+    }
+
+    @Test
+    public void testIndertNhrqualification() throws Exception {
+       this.importNhrQualification.indertNhrqualification();
     }
 }

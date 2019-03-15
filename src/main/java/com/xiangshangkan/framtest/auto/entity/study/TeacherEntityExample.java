@@ -394,76 +394,6 @@ public class TeacherEntityExample {
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneIsNull() {
-            addCriterion("telphone is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneIsNotNull() {
-            addCriterion("telphone is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneEqualTo(String value) {
-            addCriterion("telphone =", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneNotEqualTo(String value) {
-            addCriterion("telphone <>", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneGreaterThan(String value) {
-            addCriterion("telphone >", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneGreaterThanOrEqualTo(String value) {
-            addCriterion("telphone >=", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneLessThan(String value) {
-            addCriterion("telphone <", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneLessThanOrEqualTo(String value) {
-            addCriterion("telphone <=", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneLike(String value) {
-            addCriterion("telphone like", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneNotLike(String value) {
-            addCriterion("telphone not like", value, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneIn(List<String> values) {
-            addCriterion("telphone in", values, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneNotIn(List<String> values) {
-            addCriterion("telphone not in", values, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneBetween(String value1, String value2) {
-            addCriterion("telphone between", value1, value2, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneNotBetween(String value1, String value2) {
-            addCriterion("telphone not between", value1, value2, "telphone");
-            return (Criteria) this;
-        }
-
         public Criteria andTeacherNameLikeInsensitive(String value) {
             addCriterion("upper(teacher_name) like", value.toUpperCase(), "teacherName");
             return (Criteria) this;
@@ -471,11 +401,6 @@ public class TeacherEntityExample {
 
         public Criteria andTeacherNumberLikeInsensitive(String value) {
             addCriterion("upper(teacher_number) like", value.toUpperCase(), "teacherNumber");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneLikeInsensitive(String value) {
-            addCriterion("upper(telphone) like", value.toUpperCase(), "telphone");
             return (Criteria) this;
         }
     }
