@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/kafka")
 public class KafkaController {
 
-    @Autowired
+    @Autowired(required = false)
     KafkaTemplate kafkaTemplate;
 
     @Value("nwbs-optimizeNetwork-task")
