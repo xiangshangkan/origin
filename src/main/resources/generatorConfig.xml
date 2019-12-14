@@ -63,13 +63,13 @@
         </javaTypeResolver>
 
         <!-- java模型创建器，是必须要的元素 定义java生成文件位置-->
-        <javaModelGenerator targetPackage="com.xiangshangkan.framtest.auto.entity.study" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.xiangshangkan.framtest.auto.entity" targetProject="src/main/java">
             <!--<property name="enableSubPackages" value="true"/>-->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成SQL map的XML文件生成器 定义文件生成位置 -->
-        <sqlMapGenerator targetPackage="com.xiangshangkan.framtest.auto.dao.study.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.xiangshangkan.framtest.auto.dao.mapper" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <!--<property name="enableSubPackages" value="true"/>-->
         </sqlMapGenerator>
@@ -93,8 +93,8 @@
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="certificate_info"
-               domainObjectName="CertificateInfoEntity"
+        <table tableName="certificate_keep_log"
+               domainObjectName="CertificateKeepLogEntity"
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
