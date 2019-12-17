@@ -44,7 +44,7 @@
         <!--mapper映射文件 -->
         <property name="mapperLocations">
           <list>
-              <value>classpath*:com/xiangshangkan/framtest/auto/dao/study/mapper/*.xml</value>
+              <value>classpath*:com/xiangshangkan/framtest/auto/dao/mapper/*.xml</value>
           </list>
         </property>
     </bean>
