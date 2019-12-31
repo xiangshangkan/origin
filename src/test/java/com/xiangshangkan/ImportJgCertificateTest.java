@@ -1,16 +1,8 @@
 package com.xiangshangkan;
 
-import com.xiangshangkan.framtest.auto.dao.CertificateInfoEntityMapper;
-import com.xiangshangkan.framtest.auto.dao.CertificateKeepLogEntityMapper;
-import com.xiangshangkan.framtest.auto.entity.CertificateInfoEntity;
-import com.xiangshangkan.framtest.auto.entity.CertificateKeepLogEntity;
 import com.xiangshangkan.framtest.service.importdate.ImportCertificateService;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Objects;
-import java.util.function.Supplier;
 
 /**
  * @ClassName ImportJgCertificateTest

@@ -93,10 +93,20 @@
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="certificate_keep_log"
-               domainObjectName="CertificateKeepLogEntity"
+        <table tableName="cm_dictionary"
+               domainObjectName="CmDictionaryEntity"
                schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
+        <table tableName="license_business_info"
+               domainObjectName="LicenseBusinessInfoEntity"
+               schema="framtest">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+       <!-- <table tableName="certificate_keep_log"
+               domainObjectName="CertificateKeepLogEntity"
+               schema="framtest">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>-->
     </context>
 </generatorConfiguration>
