@@ -5,6 +5,7 @@ import com.xiangshangkan.framtest.auto.dao.CertificateKeepLogEntityMapper;
 import com.xiangshangkan.framtest.auto.entity.CertificateInfoEntity;
 import com.xiangshangkan.framtest.auto.entity.CertificateKeepLogEntity;
 import com.xiangshangkan.framtest.service.importdate.ImportCertificateService;
+import com.xiangshangkan.framtest.util.ImportPOIUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.slf4j.Logger;
@@ -83,7 +84,7 @@ public class ImportCertificateServiceImpl implements ImportCertificateService {
                 throw new RuntimeException();
             }
 
-            entity.setManagementNumber(getCellValue(row.getCell(7)).trim());
+            entity.setManagementNumber(ImportPOIUtil.getCellValue(row.getCell(7)).trim());
             if (StringUtils.isBlank(entity.getManagementNumber())) {
                 logger.error("证书编号"+ entity.getCertificateNumber()+",身份证"+entity.getIdCard());
                 throw new RuntimeException();
@@ -178,39 +179,5 @@ public class ImportCertificateServiceImpl implements ImportCertificateService {
             startKeepTime = getDate(dateText,"yyyy-MM-dd");
         }
         return startKeepTime;
-    }
-
-    /**
-     * @description 获取CEll文本值
-     * @param
-     * @return
-     * @author      zhouhui
-     * @date        2019/10/11 17:50
-     */
-    private String getCellValue(Cell cell) {
-        if (cell == null || "".equals(cell.toString().trim())) {
-            return "";
-        }
-        CellType cellType = cell.getCellTypeEnum();
-        DecimalFormat dft = new DecimalFormat("#.##");
-        switch (cellType) {
-            case _NONE:
-            case BLANK:
-            case ERROR:
-                return "";
-            case STRING:
-                return String.valueOf(cell.getStringCellValue()).trim();
-            case BOOLEAN:
-                return String.valueOf(cell.getBooleanCellValue()).trim();
-            case NUMERIC:
-            case FORMULA:
-                if(DateUtil.isCellDateFormatted(cell)) {
-                    Date date = cell.getDateCellValue();
-                } else {
-                    return String.valueOf(dft.format(cell.getNumericCellValue())).trim();
-                }
-            default:
-                return "";
-        }
     }
 }

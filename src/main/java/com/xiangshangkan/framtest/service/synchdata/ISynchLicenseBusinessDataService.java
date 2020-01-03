@@ -1,6 +1,7 @@
 package com.xiangshangkan.framtest.service.synchdata;
 
 import com.xiangshangkan.framtest.auto.entity.CmDictionaryEntity;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import java.util.Map;
 import java.util.Optional;
@@ -21,6 +22,8 @@ public interface ISynchLicenseBusinessDataService {
     public Map<String,String> getCityOrArea (String companyAddr);
 
     public void synchBusiness();
+
+    public void importStoreSerial(Workbook workbook);
 
 
 }
