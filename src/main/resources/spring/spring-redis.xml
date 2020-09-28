@@ -23,20 +23,18 @@
         <property name="maxWaitMillis" value="${redis.maxWaitMillis}" />
         <property name="testOnBorrow" value="${redis.testOnBorrow}" />
     </bean>
-    <!--    spring 整合redis 的方式开始     -->
-    <!--redis写缓存配置-->
-    <!--<bean id="jedisConnectionFactory"
+    <!--    spring 整合redis
+    <bean id="jedisConnectionFactory"
           class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <property name="hostName" value="${redis.host}" />
         <property name="port" value="${redis.port}" />
         <property name="password" value="${redis.password:}"/>
-        &lt;!&ndash; 加载JedisPool配置信息 &ndash;&gt;
         <property name="poolConfig" ref="jedisPoolConfig" />
     </bean>
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory" />
-    </bean>-->
-    <!--    spring 整合redis 的方式结束   -->
+    </bean>
+    -->
 
     <!-- redis 链接池 -->
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy" depends-on="jedisPoolConfig">

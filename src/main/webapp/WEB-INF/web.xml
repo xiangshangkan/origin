@@ -70,20 +70,11 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-
-
-
-
-
-
-
-
-
   <!-- 配置logback -->
-  <!--<context-param>
+  <context-param>
     <param-name>logbackConfigLocation</param-name>
     <param-value>classpath:logback.xml</param-value>
-  </context-param>-->
+  </context-param>
   <!--设置session无操作5分钟后销毁-->
   <session-config>
     <session-timeout>5</session-timeout>

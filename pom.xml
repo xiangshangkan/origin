@@ -197,12 +197,6 @@
     </dependency>
 <!--          以上为基本必须        -->
 
-    <!-- 消息中间件kafka -->
-    <dependency>
-      <groupId>org.springframework.kafka</groupId>
-      <artifactId>spring-kafka</artifactId>
-      <version>2.2.4.RELEASE</version>
-    </dependency>
 
 
 
@@ -270,29 +264,10 @@
     </dependency>
     <!-- POI end  -->
     <!-- redis start-->
-    <!--   spring整合redis 暂定在这，人事在common包   -->
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-redis</artifactId>
       <version>1.6.4.RELEASE</version>
-      <!--<exclusions>
-          <exclusion>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring-tx</artifactId>
-          </exclusion>
-          <exclusion>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring-oxm</artifactId>
-          </exclusion>
-          <exclusion>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring-aop</artifactId>
-          </exclusion>
-          <exclusion>
-              <groupId>org.springframework</groupId>
-              <artifactId>spring-context-support</artifactId>
-          </exclusion>
-      </exclusions>-->
     </dependency>
 
     <dependency>
@@ -300,7 +275,6 @@
       <artifactId>jedis</artifactId>
       <version>2.9.0</version>
     </dependency>
-
     <!-- redis end -->
 
     <!-- spring 整合kafka start -->
@@ -326,7 +300,6 @@
       <artifactId>qiniu-java-sdk</artifactId>
       <version>[7.0.0, 7.0.99]</version>
     </dependency>
-
   </dependencies>
 
 <!-- 依赖的管理：定义父模块的jar包便于子模块的继承 -->
@@ -345,41 +318,9 @@
     <pluginManagement><!-- 插件的管理，一般在父pom中定义，确保插件版本一致lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
-          <groupId>org.mybatis.generator</groupId>
-          <artifactId>mybatis-generator-maven-plugin</artifactId>
-          <version>1.3.2</version>
-          <configuration>
-            <!--配置文件的位置-->
-            <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
-            <verbose>true</verbose>
-            <overwrite>true</overwrite>
-          </configuration>
-          <executions>
-            <execution>
-              <id>Generate MyBatis Artifacts</id>
-              <goals>
-                <goal>generate</goal>
-              </goals>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId>org.mybatis.generator</groupId>
-              <artifactId>mybatis-generator-core</artifactId>
-              <version>1.3.2</version>
-            </dependency>
-            <dependency>
-              <groupId>mysql</groupId>
-              <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-          </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
        <!-- 资源文件拷贝插件 -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
@@ -412,40 +353,43 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
-
-        <!-- mybatis逆向工程插件 -->
-        <plugin>
-          <groupId>org.mybatis.generator</groupId>
-          <artifactId>mybatis-generator-maven-plugin</artifactId>
-          <version>1.3.2</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.mybatis.generator</groupId>
-              <artifactId>mybatis-generator-core</artifactId>
-              <version>1.3.2</version>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <!--配置文件的位置-->
-            <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
-            <!-- 是否将生成过程打印到控制台 -->
-            <verbose>true</verbose>
-            <!-- 是否覆盖同名文件 -->
-            <overwrite>true</overwrite>
-          </configuration>
-          <executions>
-            <execution>
-              <id>Generate MyBatis Artifacts</id>
-              <goals>
-                <goal>generate</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <!-- mybatis逆向工程插件 -->
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <!--配置文件的位置-->
+          <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+          <verbose>true</verbose>
+          <overwrite>true</overwrite>
+        </configuration>
+        <executions>
+          <execution>
+            <id>Generate MyBatis Artifacts</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.6</version>
+          </dependency>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.32</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
 
 
     <!-- 资源文件打包 -->

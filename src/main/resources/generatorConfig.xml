@@ -84,29 +84,16 @@
        注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
     -->
         <!--
-         tableName  表明
+         tableName  表名
          domainObjectName 生成的实体对象名称
          mapperName  mapper文件名称  MGB 1.3.4版本后才有效
          -->
-        <table tableName="certificate_info"
-               domainObjectName="CertificateInfoEntity"
-               schema="framtest">
+        <table tableName="t_listen_music" domainObjectName="ListenMusicEntity" schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="cm_dictionary"
-               domainObjectName="CmDictionaryEntity"
-               schema="framtest">
+
+        <table tableName="t_listen_music_list" domainObjectName="ListenMusicListEntity" schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="license_business_info"
-               domainObjectName="LicenseBusinessInfoEntity"
-               schema="framtest">
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-       <!-- <table tableName="certificate_keep_log"
-               domainObjectName="CertificateKeepLogEntity"
-               schema="framtest">
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>-->
     </context>
 </generatorConfiguration>

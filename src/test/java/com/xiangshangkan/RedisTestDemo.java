@@ -12,9 +12,7 @@ import redis.clients.jedis.JedisPool;
  * @author : zhouhui
  * @date : 2019/2/21 15:07
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring/applicationContext.xml")
-public class RedisTestDemo {
+public class RedisTestDemo extends AbstractTest{
     //定义jedis连接池
     @Autowired
     private JedisPool jedisPool;
