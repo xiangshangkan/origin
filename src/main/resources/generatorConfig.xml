@@ -95,5 +95,9 @@
         <table tableName="t_listen_music_list" domainObjectName="ListenMusicListEntity" schema="framtest">
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
+
+        <table tableName="t_wiki_detail" domainObjectName="WikiDetail" schema="framtest">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
     </context>
 </generatorConfiguration>
